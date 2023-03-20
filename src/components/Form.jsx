@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const Form = (props) => {
+  // Setting default values for user object keys
   const [user, setUser] =  useState({
     firstName: "",
     lastName: "",
@@ -12,10 +13,12 @@ const Form = (props) => {
   // destructuring the 'user' state object into individual variables
   const {firstName, lastName, email, password, confirmPassword} = user
 
+  // Function to handle changing form inputs and update the user object accordingly
   const handleUserChange = (e) => {
     setUser(prevUserState => {return {...prevUserState, [e.target.name]: e.target.value}})
   }
 
+  // JSX return
   return (
     <div>
       <h1>Hook Form</h1>
@@ -48,6 +51,7 @@ const Form = (props) => {
         </form>`
       </div>
 
+      {/* Show user data in real time according to the values in the form inputs */}
       <div className="showUserData">
         <h2>{firstName} {lastName}</h2>
         <p>Email: {email}</p>
